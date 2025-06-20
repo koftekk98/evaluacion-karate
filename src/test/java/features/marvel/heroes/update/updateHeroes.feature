@@ -25,7 +25,7 @@ Feature: Test update heroes
     Then status 200
 
 
-  Scenario: T-API-PQBP-638-CA1 Create Hero (Duplicated Name)
+  Scenario: T-API-PQBP-638-CA2 Create Hero (NOT FOUND)
     Given path '/testuser/api/characters/999'
     * def requestBody = read('classpath:data/update/updateHero.json')
     * def responseBody = read('classpath:data/update/updateHeroNotFound.json')

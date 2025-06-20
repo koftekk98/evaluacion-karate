@@ -15,7 +15,7 @@ Feature: Test create heroes
     Then status 201
 
 
-  Scenario: T-API-PQBP-638-CA1 Create Hero (Duplicated Name)
+  Scenario: T-API-PQBP-638-CA2 Create Hero (Duplicated Name)
     Given path '/testuser/api/characters'
     * def requestBody = read('classpath:data/create/createHeroDuplicated.json')
     And request requestBody
@@ -23,7 +23,7 @@ Feature: Test create heroes
     Then status 400
 
 
-  Scenario: T-API-PQBP-638-CA1 Create Hero (Missing Fields)
+  Scenario: T-API-PQBP-638-CA3 Create Hero (Missing Fields)
     Given path '/testuser/api/characters'
     * def requestBody = read('classpath:data/create/createHeroRequestMissingFields.json')
     And request requestBody

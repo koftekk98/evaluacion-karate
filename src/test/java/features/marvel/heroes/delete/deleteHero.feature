@@ -5,7 +5,8 @@ Feature: Test delete heroe
     * url baseUrl
 
 
-  Scenario: T-API-PQBP-637-CA1 Create and then Update Hero
+  @usersById
+  Scenario: T-API-PQBP-637-CA1 Create and then Delete Hero
     # --- Create Hero ---
     Given path '/testuser/api/characters'
     * def createRequest = read('classpath:data/create/createHeroRequest.json')
@@ -17,18 +18,17 @@ Feature: Test delete heroe
     * def createdId = response.id
     * print 'Created Hero ID:', createdId
 
-    # --- Update Hero ---
+    # --- Delete Hero ---
     Given path '/testuser/api/characters', createdId
-    * def updateRequest = read('classpath:data/update/updateHero.json')
-    And request updateRequest
-    When method put
-    Then status 200
+    * def deleteRequest = read('classpath:data/update/updateHero.json')
+    And request deleteRequest
+    When method delete
+    Then status 204
 
 
-  Scenario: T-API-PQBP-638-CA1 Create Hero (Duplicated Name)
-    Given path '/testuser/api/characters/999'
-    * def requestBody = read('classpath:data/update/updateHero.json')
+  @usersById
+  Scenario: T-API-PQBP-638-CA2 Delete Hero (Not Found)
+    Given path '/testuser/api/characters/99999'
     * def responseBody = read('classpath:data/update/updateHeroNotFound.json')
-    And request requestBody
-    When method put
+    When method delete
     Then status 404

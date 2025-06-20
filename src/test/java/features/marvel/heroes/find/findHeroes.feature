@@ -10,15 +10,7 @@ Feature: Test create heroes
     Then status 200
 
 
-  Scenario: T-API-PQBP-636-CA2 Find Hero by ID (Success)
-    * def responseBody = read('classpath:data/find/findByIdResponse.json')
-    Given path '/testuser/api/characters/128'
-    When method get
-    Then status 200
-    And match response == responseBody
-
-  @usersById
-  Scenario: T-API-PQBP-637-CA1 Create and then Update Hero
+  Scenario: T-API-PQBP-637-CA2 Create and then find Hero
     # --- Create Hero ---
     Given path '/testuser/api/characters'
     * def createRequest = read('classpath:data/create/createHeroRequest.json')
@@ -30,11 +22,14 @@ Feature: Test create heroes
     * def createdId = response.id
     * print 'Created Hero ID:', createdId
 
+    # Add id to expected object for comparison
+    * createRequest.id = createdId
+
     # --- Find Hero ---
     Given path '/testuser/api/characters', createdId
     When method get
     Then status 200
-    And match response == responseBody
+    And match response == createRequest
 
 
   Scenario: T-API-PQBP-636-CA3 Not Find Hero by ID (Fail)

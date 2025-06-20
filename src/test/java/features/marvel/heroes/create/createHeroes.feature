@@ -4,7 +4,7 @@ Feature: Test create heroes
     * configure ssl = true
     * url baseUrl
 
-  @usersById
+
   Scenario: T-API-PQBP-637-CA1 Create Hero
     Given path '/testuser/api/characters'
     * def requestBody = read('classpath:data/create/createHeroRequest.json')
@@ -14,7 +14,7 @@ Feature: Test create heroes
     When method post
     Then status 201
 
-  @usersById
+
   Scenario: T-API-PQBP-638-CA1 Create Hero (Duplicated Name)
     Given path '/testuser/api/characters'
     * def requestBody = read('classpath:data/create/createHeroDuplicated.json')
@@ -22,7 +22,7 @@ Feature: Test create heroes
     When method post
     Then status 400
 
-  @usersById
+
   Scenario: T-API-PQBP-638-CA1 Create Hero (Missing Fields)
     Given path '/testuser/api/characters'
     * def requestBody = read('classpath:data/create/createHeroRequestMissingFields.json')

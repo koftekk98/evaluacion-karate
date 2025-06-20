@@ -5,7 +5,6 @@ Feature: Test delete heroe
     * url baseUrl
 
 
-  @usersById
   Scenario: T-API-PQBP-637-CA1 Create and then Delete Hero
     # --- Create Hero ---
     Given path '/testuser/api/characters'
@@ -26,7 +25,6 @@ Feature: Test delete heroe
     Then status 204
 
 
-  @usersById
   Scenario: T-API-PQBP-638-CA2 Delete Hero (Not Found)
     Given path '/testuser/api/characters/99999'
     * def responseBody = read('classpath:data/update/updateHeroNotFound.json')

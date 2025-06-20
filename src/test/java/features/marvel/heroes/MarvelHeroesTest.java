@@ -12,9 +12,4 @@ class MarvelHeroesTest {
         return Karate.run().relativeTo(getClass());
     }
 
-    @Karate.Test
-    Karate testSmoke() {
-        return Karate.run().relativeTo(getClass()).tags("@usersById");
-    }
-
 }

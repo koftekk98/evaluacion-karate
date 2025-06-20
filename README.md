@@ -1,35 +1,92 @@
-# Proyecto base de pruebas automatizadas con Karate, Java y Gradle
+# 🏋 Karate Chapter Evaluación - Marvel Heroes API
 
-Este proyecto es una base para implementar pruebas automatizadas de la colección de peticiones entregadas (por ejemplo, una colección Postman). Todas las pruebas deben ser escritas en el archivo `src/test/resources/karate-test.feature` siguiendo la sintaxis de Karate DSL.
+## 💼 Author
 
-## Instrucciones de uso
-
-### 1. Descarga del proyecto
-
-Clona este repositorio en tu máquina local:
-
-```sh
-git clone https://github.com/dg-juacasti/test-automatisation-base
-cd karate-test
-```
-
-### 2. Escribe tus pruebas
-
-- Implementa los escenarios de prueba en el archivo:
-  - `src/test/resources/karate-test.feature`
-- Usa la sintaxis de Karate para definir los escenarios y validaciones.
-
-### 3. Ejecuta las pruebas
-
-Asegúrate de tener Java 17, 18 o 21 instalado y activo. Luego ejecuta:
-
-```sh
-./gradlew test o gradlew test
-```
-
-Esto compilará el proyecto y ejecutará todas las pruebas automatizadas.
+**Nombre:** *\Rein Obregon*
 
 ---
 
-- Si tienes problemas de SSL, puedes agregar la línea `* configure ssl = true` en el `Background` de tu archivo `.feature`.
-- Los reportes de ejecución se generarán en la carpeta `karate-reports/`.
+## 📖 Descripción
+
+Este proyecto forma parte de una evaluación práctica utilizando **Karate DSL** para realizar pruebas de API sobre el sistema de **Marvel Heroes**.
+
+Incluye escenarios de prueba para:
+
+* Crear héroes
+* Consultar héroes por ID
+* Actualizar información de héroes
+* Manejo de errores como ID duplicado o no encontrado
+* Eliminar Heroes
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+karate-marvel-api/
+├── build.gradle
+├── src/
+│   └── test/
+│       ├── java/
+│       │   └── features.marvel.heroes/
+│       │        ├── create/
+│       │        ├── update/
+│       │        ├── delete/
+│       │        ├── find/ 
+│       │        └── MarvelHeroesTest.java
+│       └── resources/
+│           └── data/
+│               ├── create/
+                ├── update/
+│               ├── delete/
+│               ├── find/  
+└── README.md
+```
+
+---
+
+## ▶️ Cómo ejecutar las pruebas
+
+### 🪠 Windows (CMD)
+
+```bash
+gradlew test -Dkarate.env=dev
+```
+
+> 📝 Asegúrate de usar `cmd` y no PowerShell si ves que las variables no funcionan correctamente.
+
+---
+
+### 🐧 Linux / macOS
+
+```bash
+./gradlew test -Dkarate.env=dev
+```
+
+> ⚠️ Asegúrate de que el archivo `gradlew` tenga permisos de ejecución (`chmod +x gradlew` si es necesario).
+
+
+
+
+
+## 📦 Requisitos
+
+* Java 11 o superior
+* Gradle 7 o superior
+* IntelliJ IDEA (opcional, para correr desde la UI)
+* Conexión a Internet (si usas endpoints públicos)
+
+---
+
+## 📄 Notas
+
+* Los archivos `.json` usados para solicitudes y respuestas esperadas se encuentran bajo `src/test/resources/data/`.
+* El reporte de resultados se encuentra en:
+  `build/reports/tests/test/index.html`
+* Las configuraciones por entorno se definen en `karate-config.js`.
+
+---
+
+## ✨ Créditos
+
+Proyecto construido con 💥 usando [Karate DSL](https://github.com/karatelabs/karate) por *Rein Obregon*.

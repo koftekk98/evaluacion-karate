@@ -5,8 +5,7 @@ Feature: Test delete heroe
     * url baseUrl
 
 
-  Scenario: T-API-PQBP-637-CA1 Create and then Delete Hero
-    # --- Create Hero ---
+  Scenario: T-API-PQBP-637-CA1 Delete Hero
     Given path '/testuser/api/characters'
     * def createRequest = read('classpath:data/create/createHeroRequest.json')
     * def uuid = java.util.UUID.randomUUID().toString()

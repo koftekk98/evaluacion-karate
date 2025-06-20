@@ -10,8 +10,7 @@ Feature: Test create heroes
     Then status 200
 
 
-  Scenario: T-API-PQBP-637-CA2 Create and then find Hero
-    # --- Create Hero ---
+  Scenario: T-API-PQBP-637-CA2 Find Hero by Id
     Given path '/testuser/api/characters'
     * def createRequest = read('classpath:data/create/createHeroRequest.json')
     * def uuid = java.util.UUID.randomUUID().toString()

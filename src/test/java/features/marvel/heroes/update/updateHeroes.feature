@@ -5,8 +5,7 @@ Feature: Test update heroes
     * url baseUrl
 
 
-  Scenario: T-API-PQBP-637-CA1 Create and then Update Hero
-    # --- Create Hero ---
+  Scenario: T-API-PQBP-637-CA1 Update Hero
     Given path '/testuser/api/characters'
     * def createRequest = read('classpath:data/create/createHeroRequest.json')
     * def uuid = java.util.UUID.randomUUID().toString()
@@ -25,8 +24,8 @@ Feature: Test update heroes
     Then status 200
 
 
-  Scenario: T-API-PQBP-638-CA2 Create Hero (NOT FOUND)
-    Given path '/testuser/api/characters/999'
+  Scenario: T-API-PQBP-638-CA2 Update Hero (NOT FOUND)
+    Given path '/testuser/api/characters/9999'
     * def requestBody = read('classpath:data/update/updateHero.json')
     * def responseBody = read('classpath:data/update/updateHeroNotFound.json')
     And request requestBody
